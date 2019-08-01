@@ -1,5 +1,5 @@
-from app.repository import current_repo
-from app.response_objects import ResponseFailure, ResponseSuccess
+from app.core.repository import current_repo
+from app.core.response_objects import ResponseFailure, ResponseSuccess
 
 
 class PostItemUseCase:

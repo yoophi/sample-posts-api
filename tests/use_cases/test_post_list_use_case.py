@@ -2,9 +2,9 @@ from unittest import mock
 
 import pytest
 
-from app.domain.post import Post
-from app.request_objects.post import PostListRequestObject
-from app.use_cases import PostListUseCase
+from app.core.domain.post import Post
+from app.core.request_objects.post import PostListRequestObject
+from app.core.use_cases import PostListUseCase
 
 
 @pytest.fixture

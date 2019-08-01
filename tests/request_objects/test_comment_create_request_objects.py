@@ -1,5 +1,4 @@
-from app.request_objects.post import PostItemRequestObject, PostCreateRequestObject
-from app.request_objects.comment import  CommentCreateRequestObject
+from app.core.request_objects.comment import  CommentCreateRequestObject
 
 
 def test_build_comment_create_request_object_from_empty_dict():

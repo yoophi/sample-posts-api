@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from app.domain.comment import Comment as CommentEntity
-from app.domain.post import Post as PostEntity
+from app.core.domain.comment import Comment as CommentEntity
+from app.core.domain.post import Post as PostEntity
 from .database import db
 
 

@@ -1,9 +1,9 @@
 from flask import request, jsonify
 
-from app.repository import current_repo
-from app.request_objects.comment import CommentCreateRequestObject
+from app.core.repository import current_repo
+from app.core.request_objects.comment import CommentCreateRequestObject
 from app.serializers import CommentSchema
-from app.use_cases import CommentCreateUseCase
+from app.core.use_cases import CommentCreateUseCase
 from . import api
 
 

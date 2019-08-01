@@ -2,9 +2,9 @@ from flask import Flask
 
 from app.api import api as api_bp
 from app.config import config
+from app.core.repository.sqla.database import db
 from app.extensions import cors, ma
 from app.main import main as main_bp
-from app.repository.sqla import db
 from app.swagger import swagger_bp
 
 

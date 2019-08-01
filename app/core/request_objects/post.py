@@ -1,8 +1,8 @@
 from marshmallow import fields, validates, ValidationError
 from voluptuous import Schema, Required, All, MultipleInvalid
 
+from app.core.request_objects import ValidRequestObject, InvalidRequestObject
 from app.extensions import ma
-from app.request_objects import ValidRequestObject, InvalidRequestObject
 from app.swagger import swagger_definition
 
 validate_post_item_request_object = Schema({Required("id"): All(int)})

@@ -1,5 +1,5 @@
-from app.repository.sqla.database import db
-from app.repository.sqla.models import Post, Comment
+from app.core.repository.sqla.database import db
+from app.core.repository.sqla.models import Post, Comment
 
 
 class SqlaRepo:

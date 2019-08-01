@@ -1,4 +1,4 @@
-from app.domain.comment import Comment
+from app.core.domain.comment import Comment
 
 
 class Post:

@@ -1,7 +1,7 @@
 from collections import defaultdict
 
-from app.domain.comment import Comment
-from app.domain.post import Post
+from app.core.domain.comment import Comment
+from app.core.domain.post import Post
 
 
 class MemRepo:

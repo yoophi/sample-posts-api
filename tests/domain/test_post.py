@@ -1,5 +1,5 @@
-from app.domain.comment import Comment
-from app.domain.post import Post
+from app.core.domain.comment import Comment
+from app.core.domain.post import Post
 
 
 def test_post_model_init():

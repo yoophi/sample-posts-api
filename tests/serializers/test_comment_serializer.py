@@ -1,6 +1,6 @@
 import json
 
-from app.domain.comment import Comment
+from app.core.domain.comment import Comment
 from app.serializers import CommentSchema
 
 
