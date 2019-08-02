@@ -1,10 +1,10 @@
 from flask import jsonify, request
 
 from app.api import api
-from app.repository import current_repo
-from app.request_objects.post import PostListRequestObject, PostItemRequestObject, PostCreateRequestObject
+from app.core.repository import current_repo
+from app.core.request_objects.post import PostListRequestObject, PostItemRequestObject, PostCreateRequestObject
+from app.core.use_cases import PostListUseCase, PostItemUseCase, PostCreateUseCase
 from app.serializers import PostSchema
-from app.use_cases import PostListUseCase, PostItemUseCase, PostCreateUseCase
 
 
 @api.route("/v1/posts", methods=["GET"])

@@ -2,9 +2,9 @@ from unittest import mock
 
 import pytest
 
-from app.domain.comment import Comment
-from app.request_objects.comment import CommentCreateRequestObject
-from app.use_cases import CommentCreateUseCase
+from app.core.domain.comment import Comment
+from app.core.request_objects.comment import CommentCreateRequestObject
+from app.core.use_cases import CommentCreateUseCase
 
 
 @pytest.fixture

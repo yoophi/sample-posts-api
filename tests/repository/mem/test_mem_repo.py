@@ -1,8 +1,8 @@
 import pytest
 
-from app.domain.comment import Comment
-from app.domain.post import Post
-from app.repository import MemRepo
+from app.core.domain.comment import Comment
+from app.core.domain.post import Post
+from app.core.repository import MemRepo
 
 
 @pytest.fixture

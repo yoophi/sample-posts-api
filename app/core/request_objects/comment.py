@@ -1,7 +1,7 @@
 from marshmallow import fields, validates, ValidationError
 
+from app.core.request_objects import ValidRequestObject, InvalidRequestObject
 from app.extensions import ma
-from app.request_objects import ValidRequestObject, InvalidRequestObject
 from app.swagger import swagger_definition
 
 

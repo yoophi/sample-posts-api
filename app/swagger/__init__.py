@@ -45,5 +45,5 @@ def swagger_definition(class_):
 
 
 from app.serializers import *  # noqa
-from app.request_objects.comment import *  # noqa
-from app.request_objects.post import *  # noqa
+from app.core.request_objects.comment import *  # noqa
+from app.core.request_objects.post import *  # noqa

@@ -1,4 +1,4 @@
-from app.request_objects.post import PostItemRequestObject, PostCreateRequestObject
+from app.core.request_objects.post import PostCreateRequestObject
 
 
 def test_build_post_create_request_object_from_empty_dict():

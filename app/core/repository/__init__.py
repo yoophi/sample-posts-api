@@ -1,9 +1,9 @@
 from flask import current_app
 from werkzeug.local import LocalProxy
 
-from app.repository.mem import MemRepo
-from app.repository.mem.data import initial_data
-from app.repository.sqla import SqlaRepo
+from app.core.repository.mem import MemRepo
+from app.core.repository.mem.data import initial_data
+from app.core.repository.sqla import SqlaRepo
 
 repo_mappings = {
     'MYSQL': SqlaRepo,

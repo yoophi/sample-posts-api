@@ -1,7 +1,7 @@
 import pytest
 
-from app.request_objects import InvalidRequestObject
-from app.response_objects import ResponseSuccess, ResponseFailure
+from app.core.request_objects import InvalidRequestObject
+from app.core.response_objects import ResponseSuccess, ResponseFailure
 
 
 @pytest.fixture
