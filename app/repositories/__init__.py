@@ -1,21 +1,18 @@
 from flask import current_app
 from werkzeug.local import LocalProxy
 
-from app.core.repository.mem import MemRepo
-from app.core.repository.mem.data import initial_data
-from app.core.repository.sqla import SqlaRepo
+from app.repositories.mem import MemRepo
+from app.repositories.mem.data import initial_data
+from app.repositories.sqla import SqlaRepo
 
-repo_mappings = {
-    'MYSQL': SqlaRepo,
-    'MEMORY': MemRepo,
-}
+repo_mappings = {"MYSQL": SqlaRepo, "MEMORY": MemRepo}
 
 
 def _get_repo():
     cls = repo_mappings.get(current_app.config.get("REPO_ENGINE"), MemRepo)
 
     if cls is MemRepo:
-        if not getattr(_get_repo, 'mem_repo', None):
+        if not getattr(_get_repo, "mem_repo", None):
             _get_repo.mem_repo = cls(initial_data)
 
         return _get_repo.mem_repo

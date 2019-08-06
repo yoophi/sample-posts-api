@@ -1,4 +1,4 @@
-from app.core.repository import current_repo
+from app.repositories import current_repo
 from app.core.response_objects import ResponseFailure, ResponseSuccess
 
 
@@ -11,7 +11,7 @@ class PostItemUseCase:
             return ResponseFailure.build_from_invalid_request_object(request_object)
 
         try:
-            result = self.repo.post_item(request_object.id)
+            result = self.repo.get_post_item(request_object.id)
 
             if result is None:
                 return ResponseFailure.build_not_found_error(
@@ -31,7 +31,7 @@ class PostListUseCase:
 
     def execute(self, request_object):
         try:
-            result = self.repo.post_list()
+            result = self.repo.get_post_list()
             return ResponseSuccess(result)
         except Exception as exc:
             return ResponseFailure.build_system_error(
@@ -45,7 +45,7 @@ class PostCreateUseCase:
 
     def execute(self, request_object):
         try:
-            result = self.repo.post_create(request_object.to_dict())
+            result = self.repo.create_post(request_object.to_dict())
             return ResponseSuccess(result)
         except Exception as exc:
             return ResponseFailure.build_system_error(
@@ -71,7 +71,7 @@ class CommentCreateUseCase:
 
     def execute(self, request_object):
         try:
-            result = self.repo.comment_create(request_object.to_dict())
+            result = self.repo.create_comment(request_object.to_dict())
             return ResponseSuccess(result)
         except Exception as exc:
             return ResponseFailure.build_system_error(

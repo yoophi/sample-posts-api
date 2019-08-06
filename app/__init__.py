@@ -2,7 +2,7 @@ from flask import Flask
 
 from app.api import api as api_bp
 from app.config import config
-from app.core.repository.sqla.database import db
+from app.repositories.sqla import db
 from app.extensions import cors, ma
 from app.main import main as main_bp
 from app.swagger import swagger_bp
@@ -15,7 +15,7 @@ def init_blueprint(app):
 
 
 def init_extensions(app):
-    if app.config['REPO_ENGINE'] == "MYSQL":
+    if app.config["REPO_ENGINE"] == "MYSQL":
         db.init_app(app)
 
     cors.init_app(app)

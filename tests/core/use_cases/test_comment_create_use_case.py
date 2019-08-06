@@ -16,14 +16,12 @@ def domain_comments():
 
 def test_comment_create_with_valid_data(domain_comments):
     repo = mock.Mock()
-    repo.comment_create.return_value = domain_comments[0]
+    repo.create_comment.return_value = domain_comments[0]
 
     comment_create_use_case = CommentCreateUseCase(repo)
-    request = CommentCreateRequestObject.from_dict(
-        {"post_id": 1, "body": "body one"}
-    )
+    request = CommentCreateRequestObject.from_dict({"post_id": 1, "body": "body one"})
     response = comment_create_use_case.execute(request)
 
     assert bool(response) is True
-    repo.comment_create.assert_called_with({"post_id": 1, "body": "body one"})
+    repo.create_comment.assert_called_with({"post_id": 1, "body": "body one"})
     assert response.value == domain_comments[0]

@@ -14,13 +14,21 @@ class Post:
 
     @classmethod
     def from_dict(cls, adict):
-        kwargs = {"id": adict["id"], "title": adict["title"], "body": adict["body"], "comments": adict.get("comments", [])}
+        kwargs = {
+            "id": adict["id"],
+            "title": adict["title"],
+            "body": adict["body"],
+            "comments": adict.get("comments", []),
+        }
         return cls(**kwargs)
 
     def to_dict(self):
-        return {"id": self.id, "title": self.title, "body": self.body, "comments": [
-            c.to_dict() for c in self.comments
-        ]}
+        return {
+            "id": self.id,
+            "title": self.title,
+            "body": self.body,
+            "comments": [c.to_dict() for c in self.comments],
+        }
 
     def __eq__(self, other):
         return self.to_dict() == other.to_dict()

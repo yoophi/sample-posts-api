@@ -23,7 +23,7 @@ def domain_posts():
 
 def test_post_item_with_params(domain_posts):
     repo = mock.Mock()
-    repo.post_item.return_value = domain_posts[0]
+    repo.get_post_item.return_value = domain_posts[0]
 
     post_item_use_case = PostItemUseCase(repo)
     request = PostItemRequestObject(id=1)
@@ -31,5 +31,5 @@ def test_post_item_with_params(domain_posts):
     response = post_item_use_case.execute(request)
 
     assert bool(response) is True
-    repo.post_item.assert_called_with(1)
+    repo.get_post_item.assert_called_with(1)
     assert response.value == domain_posts[0]

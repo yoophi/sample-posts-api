@@ -1,6 +1,6 @@
 from flask import request, jsonify
 
-from app.core.repository import current_repo
+from app.repositories import current_repo
 from app.core.request_objects.comment import CommentCreateRequestObject
 from app.serializers import CommentSchema
 from app.core.use_cases import CommentCreateUseCase
@@ -52,10 +52,7 @@ def comment_create(post_id):
         description: "Invalid input"
     """
     payload = request.get_json()
-    req = CommentCreateRequestObject.from_dict({
-        "post_id": int(post_id),
-        **payload,
-    })
+    req = CommentCreateRequestObject.from_dict({"post_id": int(post_id), **payload})
     uc = CommentCreateUseCase(repo=current_repo)
     resp = uc.execute(req)
 

@@ -23,7 +23,7 @@ def domain_posts():
 
 def test_post_list_without_params(domain_posts):
     repo = mock.Mock()
-    repo.post_list.return_value = domain_posts
+    repo.get_post_list.return_value = domain_posts
 
     post_list_use_case = PostListUseCase(repo)
     request = PostListRequestObject()
@@ -31,5 +31,5 @@ def test_post_list_without_params(domain_posts):
     response = post_list_use_case.execute(request)
 
     assert bool(response) is True
-    repo.post_list.assert_called_with()
+    repo.get_post_list.assert_called_with()
     assert response.value == domain_posts

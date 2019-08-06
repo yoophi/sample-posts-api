@@ -1,8 +1,12 @@
 from flask import jsonify, request
 
 from app.api import api
-from app.core.repository import current_repo
-from app.core.request_objects.post import PostListRequestObject, PostItemRequestObject, PostCreateRequestObject
+from app.repositories import current_repo
+from app.core.request_objects.post import (
+    PostListRequestObject,
+    PostItemRequestObject,
+    PostCreateRequestObject,
+)
 from app.core.use_cases import PostListUseCase, PostItemUseCase, PostCreateUseCase
 from app.serializers import PostSchema
 
@@ -58,10 +62,9 @@ def post_create():
         description: "Invalid input"
     """
     payload = request.get_json()
-    req = PostCreateRequestObject.from_dict({
-        "title": payload.get("title"),
-        "body": payload.get("body")
-    })
+    req = PostCreateRequestObject.from_dict(
+        {"title": payload.get("title"), "body": payload.get("body")}
+    )
     uc = PostCreateUseCase(repo=current_repo)
     resp = uc.execute(req)
 

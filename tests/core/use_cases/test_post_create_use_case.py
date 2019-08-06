@@ -16,7 +16,7 @@ def domain_posts():
 
 def test_post_create_with_valid_data(domain_posts):
     repo = mock.Mock()
-    repo.post_create.return_value = domain_posts[0]
+    repo.create_post.return_value = domain_posts[0]
 
     post_create_use_case = PostCreateUseCase(repo)
     request = PostCreateRequestObject.from_dict(
@@ -25,5 +25,5 @@ def test_post_create_with_valid_data(domain_posts):
     response = post_create_use_case.execute(request)
 
     assert bool(response) is True
-    repo.post_create.assert_called_with({"title": "title one", "body": "body one"})
+    repo.create_post.assert_called_with({"title": "title one", "body": "body one"})
     assert response.value == domain_posts[0]
